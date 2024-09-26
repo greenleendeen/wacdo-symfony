@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}accueil
+			{% endblock %}
+		</title>
+		<meta name="description"/> {% block metas %}{% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+		<link rel="stylesheet" href=" {{asset('css/style.css') }}"> {% block stylesheets %}{% endblock %}
+		<link rel="icon" type="image/ico" href="{{ asset('public/images/favicon.ico') }}"/>
+
+	</head>
+
+	<body>
+
+			<nav class=" flex nav ">
+				<ul class="flex nav spaceAround ">
+					<li>
+						<a href="{{path('app_app')}}" class= "smallButton">Accueil</a>
+					</li>
+
+					<li>
+						<a href="{{path('app_login')}}" class= "smallButton">Se connecter</a>
+					</li>
+					<li>
+						<a href="{{path('app_register')}}" class= "smallButton">créer un compte</a>
+					</li>
+				</ul>
+			
+			</nav>
+
+	<h1 class="slog">Wacdo</h1>
+
+		{% if is_granted("ROLE_ADMIN")%}
+
+			<div class=" flex nav ">
+				<ul class="flex nav spaceAround ">
+					<li>
+						<a href="{{path('app_restaurant_index')}}" class= "smallButton">gestion des restaurants</a>
+					</li>
+
+					<li>
+						<a href="{{path('app_fonction_index')}}" class= "smallButton">gestion des fonctions</a>
+					</li>
+					<li>
+						<a href="{{path('app_user_index')}}" class= "smallButton">gestion des collaborateurs</a>
+					</li>
+					<li>
+						<a href="{{path('app_affectation_index')}}" class= "smallButton">gestion des affectations</a>
+					</li>
+
+				</ul>
+				
+			</div>
+
+		{% endif %}
+
+
+		{% block body %}{% endblock %}
+
+		<script></script>
+		{% block javascripts %}{% endblock %}
+	</body>
 </html>

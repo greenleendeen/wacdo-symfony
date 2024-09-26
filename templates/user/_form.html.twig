@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+
+	{{ form_start(form, {attr:{'nonvalidate':'novalide'}}
+	) }}
+
+	<fieldset>
+		<legend>
+			Infos restaurant
+		</legend>
+
+		{{form_row(form.nom)}}
+        {{form_row(form.prenom)}}
+		{{form_row(form.email)}}
+		{{form_row(form.password)}}
+        {{form_row(form.roles)}}
+		{{form_row(form.date_embauche)}}
+        {{form_row(form.administrateur)}}
+
+	</fieldset>
+
+
+	<button class= "smallButton">{{ button_label|default('enregistrer') }}</button>
+
+
+	<button class= "smallButton">{{ button_label|default('enregistrer') }}</button>
+	{{ form_end(form) }}
+
+{% endblock %}

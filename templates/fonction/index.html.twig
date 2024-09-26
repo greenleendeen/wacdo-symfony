@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fonction index{% endblock %}
+
+{% block body %}
+    <h1>Fonctions /postes Wacdo</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Intitule_poste</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fonction in fonctions %}
+            <tr>
+                <td>{{ fonction.id }}</td>
+                <td>{{ fonction.intitulePoste }}</td>
+                <td>
+                    <a href="{{ path('app_fonction_show', {'id': fonction.id}) }}" class= "smallButton">détail</a>
+                    <a href="{{ path('app_fonction_edit', {'id': fonction.id}) }}"class= "smallButton">éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fonction_new') }}" class= "smallButton">créer</a>
+{% endblock %}

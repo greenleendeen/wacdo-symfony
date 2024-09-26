@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index
+{% endblock %}
+
+{% block body %}
+
+
+	<h1>Les collaborateurs</h1>
+	<div class="centerDiv">
+		<h2>Recherche:</h2>
+		<form action="{{ path('app_restaurant_index') }}" method="POST" class="salut">
+			<input class="search" type="search" id="search" name="search" placeholder="trouver un collaborateur"/>
+			<button class="smallButton">chercher</button>
+		</form>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Date_embauche</th>
+				<th>Administrateur</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.nom }}</td>
+					<td>{{ user.prenom }}</td>
+					<td>{{ user.dateEmbauche ? user.dateEmbauche|date('Y-m-d') : '' }}</td>
+					<td>{{ user.administrateur ? 'Yes' : 'No' }}</td>
+					<td>
+						<a href="{{ path('app_user_show', {'id': user.id}) }}" class="smallButton">détail</a>
+						<a href="{{ path('app_user_edit', {'id': user.id}) }}" class="smallButton">editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="9">pas d'enregistrements</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_register') }}" class="smallButton">créer nouvel utilisateur</a>
+
+
+{% endblock %}

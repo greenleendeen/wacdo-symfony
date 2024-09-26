@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affectation index{% endblock %}
+
+{% block body %}
+
+	<div class="centerDiv">
+		<h2>
+			Recherche:</h2>
+		<form action="{{ path('app_affectation_index') }}" method="POST" class="salut">
+			<input class="search" type="search" id="search" name="search" placeholder="trouver une affectation"/>
+			<button class="smallButton">chercher</button>
+		</form>
+	</div>
+
+    <h1>Liste des affectations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Collaborateur</th>
+                <th>poste attribué</th>
+                <th>Debut_contrat</th>
+                <th>Fin_contrat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for affectation in affectations %}
+            <tr>
+                <td>{{ affectation.id }}</td>
+                <td>{{ affectation.collaborateur.id }}</td>
+                <td>{{ affectation.poste.id }}</td>
+                <td>{{ affectation.debutContrat ? affectation.debutContrat|date('Y-m-d') : '' }}</td>
+                <td>{{ affectation.finContrat ? affectation.finContrat|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_affectation_show', {'id': affectation.id}) }}"class= "smallButton">détail</a>
+                    <a href="{{ path('app_affectation_edit', {'id': affectation.id}) }}"class= "smallButton">editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_affectation_new') }}"class= "smallButton">créer une nouvelle affectation</a>
+{% endblock %}

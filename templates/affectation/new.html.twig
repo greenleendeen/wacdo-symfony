@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Affectation{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle affectationn</h1>
+
+    {{ include('affectation/_form.html.twig') }}
+
+    <a href="{{ path('app_affectation_index') }}" class= "smallButton">revenir à la liste</a>
+{% endblock %}

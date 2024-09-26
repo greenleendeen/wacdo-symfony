@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}novelle fonction{% endblock %}
+
+{% block body %}
+    <h1>Créer un fonction</h1>
+
+    {{ include('fonction/_form.html.twig') }}
+
+    <a href="{{ path('app_fonction_index') }}">revenir à la liste</a>
+{% endblock %}

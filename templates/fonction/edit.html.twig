@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer{% endblock %}
+
+{% block body %}
+    <h1>Editer</h1>
+
+    {{ include('fonction/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_fonction_index') }}" class= "smallButton" >revenir à la liste</a>
+
+    {{ include('fonction/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+/*générales*/
+h1 {
+  font-family: "Merriweather", serif;
+  color: rgb(15, 15, 58);
+  font-size: 3rem;
+  width: 100%;
+}
+
+h2 {
+  font-family: "Lato";
+  color: rgb(61, 61, 105);
+  font-size: 1.3rem;
+  width: 100%;
+  margin-top: 0;
+}
+
+h3 {
+  font-family: "Lato";
+  font-size: 0.9rem;
+  width: 100%;
+  color: grey;
+}
+
+p {
+  font-family: "Lato";
+  font-size: 1rem;
+  width: 100%;
+  line-height: 1.5rem;
+}
+
+a {
+  font-family: "Lato";
+  color: black;
+  font-size: 1.3rem;
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+a :visited,
+:link,
+:focus {
+  color: black;
+}
+
+/*classes génériques*/
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.spaceBetwen {
+  display: flex;
+  justify-content: space-between;
+}
+
+.justifyCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.spaceAround {
+  display: flex;
+  justify-content: space-around;
+}
+.gap {
+  gap: 3%;
+}
+.itemCenter {
+  align-items: center;
+}
+
+th,td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+td {
+font-size: 1.5rem;
+}
+
+th {
+  font-size: 2rem;
+  color: rgb(8, 48, 8);
+}
+.paddings {
+  padding: 7px 15px;
+}
+
+/*pour la recherche*/
+.search {
+  width: 50%;
+  margin-top: 2%;
+  margin-left: 20%;
+}
+.slog {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.salut {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+margin: 3%;
+}
+label {
+  display: block;
+  font: 1rem "Lato";
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+}
+
+/*nav*/
+body {
+    background-color: beige;
+  }
+
+  header nav {
+  width: 100%;
+  /*position: fixed;
+        top: 0;
+        left: 0;*/
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.nav ul {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  margin: 3%;
+}
+
+/*suite*/
+.smallButton {
+  text-decoration: none;
+  padding: 3px 5px;
+  border: none;
+  background-color:rgb(8, 48, 8);
+  width: fit-content;
+  border-radius: 5px;
+  margin: 5%;
+  color: aliceblue;
+}
+
+.centerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+margin: 3%;
+
+}

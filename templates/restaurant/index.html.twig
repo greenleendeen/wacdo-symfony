@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant index
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des restaurants</h1>
+
+	<div class="centerDiv">
+		<h2>
+			Recherche:</h2>
+		<form action="{{ path('app_restaurant_index') }}" method="POST" class="salut">
+			<input class="search" type="search" id="search" name="search" placeholder="trouver une restaurant"/>
+			<button class="smallButton">chercher</button>
+		</form>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom du restaurant</th>
+				<th>Adresse</th>
+				<th>Code_postal</th>
+				<th>Ville</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for restaurant in restaurants %}
+				<tr>
+					<td>{{ restaurant.id }}</td>
+					<td>{{ restaurant.nomResto }}</td>
+					<td>{{ restaurant.adresse }}</td>
+					<td>{{ restaurant.codePostal }}</td>
+					<td>{{ restaurant.ville }}</td>
+					<td>
+						<a href="{{ path('app_restaurant_show', {'id': restaurant.id}) }}" class="smallButton">
+							détail</a>
+						<a href="{{ path('app_restaurant_edit', {'id': restaurant.id}) }}" class="smallButton">editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">aucun enregistrement trouvé</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{ path('app_restaurant_new') }}" class="smallButton">créer nouveau</a>
+
+
+{% endblock %}
